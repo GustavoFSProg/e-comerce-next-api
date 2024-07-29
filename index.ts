@@ -15,4 +15,9 @@ app.listen(PORT, () => {
     return console.log( ` 🍌 Running App: ${PORT}`)
 })
 
+
+app.get("/", (req: Request, res: Response) => {
+    return res.json( {message: ` 🍌 Running App!`})
+})
+
 export default app
