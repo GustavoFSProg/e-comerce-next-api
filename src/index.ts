@@ -1,6 +1,7 @@
 import express, {Request, Response} from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import routes from './routes'
 
 dotenv.config()
 
@@ -10,14 +11,10 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use(routes)
 
 app.listen(PORT, () => {
     return console.log( ` 🍌 Running App: ${PORT}`)
-})
-
-
-app.get("/", (req: Request, res: Response) => {
-    return res.json( {message: ` 🍌 Running App!`})
 })
 
 export default app
