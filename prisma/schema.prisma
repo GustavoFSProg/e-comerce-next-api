@@ -9,18 +9,18 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL_SQLITE")
+  provider = "mongodb"
+  url      = env("DATABASE_URL_MONGO")
 }
 
 model User {
-  id    String  @id @default(uuid())
-  email String  @unique
+  id    String  @id @default(uuid()) @map("_id")
+  email String
   name  String?
 }
 
 model Products {
-  id        String   @id @default(uuid())
+  id        String   @id @default(uuid()) @map("_id")
   name      String
   preco     Float
   descricao String
