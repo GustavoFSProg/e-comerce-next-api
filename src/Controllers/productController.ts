@@ -52,7 +52,7 @@ export async function createOneImageForProduct(req: Request, res: Response) {
           preco: Number(req.body.preco)  ,   
           descricao : req.body.descricao,
           quantity: Number(req.body.quantity),   
-                    subtotal:  Number(req.body.quantity),  
+                    subtotal:  Number(req.body.subtotal),  
                    imagem: secure_url,
         },
       })
