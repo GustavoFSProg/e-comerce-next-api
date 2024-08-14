@@ -1,5 +1,6 @@
 import express, {Request, Router, Response} from 'express'
-import productController from './Controllers/productController'
+import { create, get, showImages } from './Controllers/productController'
+import { multerConfig } from './uploader'
 
 const routes = Router()
 
@@ -8,7 +9,14 @@ routes.get("/", (req: Request, res: Response) => {
 })
 
 
-routes.get("/products", productController.GetAllProduct)
-routes.post("/create-product", productController.CreateProduct)
+routes.get("/products", get )
+routes.post("/create-product",  multerConfig,  create)
+
+// images
+routes.get("/products-images/:id", showImages )
+
+
+
+
 
 export default routes
