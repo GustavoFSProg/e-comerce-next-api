@@ -10,7 +10,7 @@ const {PORT} = process.env
 const app = express()
 
 app.use(cors({
-    origin: "http://localhost:3000"
+    origin: ["http://localhost:3000", "https://ecomerce-curso.netlify.app"]
 }))
 app.use(express.json())
 app.use(routes)
