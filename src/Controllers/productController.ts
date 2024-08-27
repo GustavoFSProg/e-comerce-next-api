@@ -146,3 +146,16 @@ export function destroy(req: Request, res: Response) {
     .then(() => res.status(201).json({ msg: "Produto removido com sucesso!" }))
     .catch((error) => res.status(400).json({ error }));
 }
+
+export  async function getOneProduct(req: Request, res: Response) {
+  try {
+    
+  const data = await db.products.findFirst({
+     where: { id: req.params.id } })
+     return res.status(201).json(data)
+  } catch (error) {
+    
+    return res.status(400).json( error)   
+   
+}
+}

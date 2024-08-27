@@ -1,5 +1,5 @@
 import express, {Request, Router, Response} from 'express'
-import { create, get, showImages } from './Controllers/productController'
+import { create, get, getOneProduct, showImages } from './Controllers/productController'
 import { multerConfig } from './uploader'
 import { getImagesProduct } from './Controllers/imagesController'
 
@@ -11,6 +11,7 @@ routes.get("/", (req: Request, res: Response) => {
 
 routes.get("/products", get )
 routes.post("/create-product",  multerConfig,  create)
+routes.get("/profile/:id",  getOneProduct)
 
 // images
 routes.get("/products-images/:id", getImagesProduct )
