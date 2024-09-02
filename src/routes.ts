@@ -13,7 +13,7 @@ routes.get("/products", get )
 routes.post("/create-product",  multerConfig,  create)
 routes.get("/profile/:id",  getOneProduct)
 
-// images
+// images s
 routes.get("/products-images/:id", getImagesProduct )
 
 
