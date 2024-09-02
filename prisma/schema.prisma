@@ -13,10 +13,12 @@ datasource db {
   url      = env("DATABASE_URL_MONGO")
 }
 
-model User {
+model Users {
   id    String  @id @default(uuid()) @map("_id")
+  name String
   email String
-  name  String?
+  cpf  String
+  password String
 }
 
 model Products {

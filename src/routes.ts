@@ -2,7 +2,8 @@ import express, {Request, Router, Response} from 'express'
 import { create, get, getOneProduct, showImages } from './Controllers/productController'
 import { multerConfig } from './uploader'
 import { getImagesProduct } from './Controllers/imagesController'
-import { CalcularPrecoFrete, getCEP } from './Controllers/freteCorreios'
+import userController from './Controllers/userController'
+import {  getCEP } from './Controllers/freteCorreios'
 
 const routes = Router()
 
@@ -20,6 +21,11 @@ routes.get("/products-images/:id", getImagesProduct )
 
 routes.get("/cep",  getCEP)
 // routes.get("/calc-cep",  CalcularPrecoFrete)
+
+//Users
+routes.get("/get-users",  userController.getUsers)
+routes.post("/create-user",  userController.createUser)
+
 
 
 

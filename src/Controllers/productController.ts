@@ -1,7 +1,7 @@
-import { PrismaClient } from "@prisma/client";
-import { Request, Response } from "express";
 import { convertBufferToString, uploader } from "../uploader";
 import { v2 } from "cloudinary";
+import { PrismaClient } from "@prisma/client";
+import { Request, Response } from "express";
 
 const db = new PrismaClient();
 
