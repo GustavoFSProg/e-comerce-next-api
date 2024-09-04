@@ -5,16 +5,31 @@
 
   import { consultarCep,  } from 'correios-brasil';
 import { Request, Response } from 'express';
-import { calcularPrecoPrazo } from 'correios-brasil/dist';
+import { isReadonlyKeywordOrPlusOrMinusToken } from 'typescript';
+// import { calcularPrecoPrazo } from 'correios-brasil/dist';
 
-export  function getCEP(){
-      
+// let dados = ""
+
+let dados: any = ""
+
+export  async function getCEP(req: Request, res: Response){
+
+    const CEP = req.body.CEP
       // Cep pode ser String ou Number
-      const cep = '93340060'; // 21770200 , '21770-200', '21770 200'.... qualquer um formato serve
+      // const cep = CEP; // 21770200 , '21770-200', '21770 200'.... qualquer um formato serve
       
-      consultarCep(cep).then(response => {
-        console.log(response);
+  await consultarCep(CEP).then(response => {
+        // console.log(response);
+      dados = response
+        // return res.status(200).json(response)
       });
+
+      console.log(dados);
+
+
+      return res.status(200).send({dbase: dados})
+
+      
 
   }
 

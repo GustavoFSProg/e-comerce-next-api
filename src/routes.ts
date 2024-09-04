@@ -19,7 +19,7 @@ routes.get("/profile/:id",  getOneProduct)
 routes.get("/products-images/:id", getImagesProduct )
 
 
-routes.get("/cep",  getCEP)
+routes.post("/cep",  getCEP)
 // routes.get("/calc-cep",  CalcularPrecoFrete)
 
 //Users
