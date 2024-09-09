@@ -25,6 +25,7 @@ routes.post("/cep",  getCEP)
 //Users
 routes.get("/get-users",  userController.getUsers)
 routes.post("/create-user",  userController.createUser)
+routes.post("/login",  userController.Login)
 
 
 
